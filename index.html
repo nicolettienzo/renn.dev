@@ -36,6 +36,8 @@
       overflow-x: hidden;
     }
 
+    html, body { width:100%; overflow-x:hidden; }
+
     .led-text {
       color: var(--navy);
       text-shadow:
@@ -379,14 +381,14 @@
     }
     .about-inner {
       position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; overflow:hidden;
     }
     .about .section-label { color: var(--glow); }
     .about .section-title { color: var(--white); text-shadow: 0 0 20px rgba(74,144,226,0.3); }
     .about p { color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; }
 
     .skills-carousel-wrap {
-      margin-top: 2rem; overflow: hidden; position: relative;
+      margin-top: 2rem; overflow: hidden; position: relative; width:100%; max-width:100%;
     }
     .skills-carousel-wrap::before,
     .skills-carousel-wrap::after {
@@ -688,6 +690,11 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .about { overflow-x:hidden; }
+      .about-inner { grid-template-columns:1fr; width:100%; overflow:hidden; }
+      .about p, .about h2, .about .section-label { max-width:100%; word-wrap:break-word; }
+      .section-title { font-size:2rem; line-height:1.2; }
+      .skills-carousel-wrap { width:100%; overflow:hidden; }
       .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .footer-inner { grid-template-columns: 1fr; text-align: center; }
       .footer-links { align-items: center; }
@@ -880,7 +887,7 @@
         <div class="section-label">Sobre mim</div>
         <h2 class="section-title">Desenvolvedor apaixonado por criar na web</h2>
         <p>Sou desenvolvedor web focado em criar sites que combinam design limpo com código de qualidade. 
-        </br>Acredito que um bom site vai além do visual, ele precisa ser rápido, acessível e gerar resultados reais para quem o contrata.</p>
+        <br>Acredito que um bom site vai além do visual, ele precisa ser rápido, acessível e gerar resultados reais para quem o contrata.</p>
         <p>Cada projeto é tratado de forma única, com atenção ao detalhe e comunicação direta durante todo o processo.</p>
         <div class="skills-carousel-wrap">
           <div class="skills-track" id="track-1"></div>
