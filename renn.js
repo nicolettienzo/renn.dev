@@ -256,7 +256,7 @@ backToTop.addEventListener('click', (e)=>{
   const flow = [
     // step 0 — greeting
     {
-      bot: 'Olá! 👋 Sou o assistente da renn.dev. Vou te ajudar a montar o briefing do seu projeto em menos de 2 minutos!',
+      bot: 'Olá! 👋 Sou o assistente do Renn. Vou te ajudar a montar o briefing do seu projeto em menos de 2 minutos!',
       choices: null,
       next: 1,
     },
