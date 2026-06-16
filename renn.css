@@ -347,6 +347,7 @@
   .calc-slider-wrap { display: flex; align-items: center; gap: 1rem; }
   .calc-slider {
     flex: 1;
+    appearance: none;
     -webkit-appearance: none;
     height: 5px;
     border-radius: 4px;
