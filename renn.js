@@ -9,14 +9,18 @@
   }, { passive: true });
 })();
 
-/* ─── HAMBURGER MENU ─── */
 (function(){
-  const btn    = document.getElementById('hamburger');
-  const drawer = document.getElementById('mobile-nav');
+  const btn     = document.getElementById('hamburger');
+  const drawer  = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('nav-overlay');
+
+  // Exibir overlay (estava display:none no CSS)
+  overlay.style.display = 'block';
 
   function closeMenu() {
     btn.classList.remove('open');
     drawer.classList.remove('open');
+    overlay.classList.remove('visible');
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
@@ -24,19 +28,15 @@
   btn.addEventListener('click', function(){
     const isOpen = drawer.classList.toggle('open');
     btn.classList.toggle('open', isOpen);
+    overlay.classList.toggle('visible', isOpen);
     btn.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close on link click
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeMenu);
-  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  overlay.addEventListener('click', closeMenu);
 
-  // Close on outside click
-  document.addEventListener('click', function(e){
-    if (!btn.contains(e.target) && !drawer.contains(e.target)) closeMenu();
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
 
 /* ─── GALAXY ─── */
